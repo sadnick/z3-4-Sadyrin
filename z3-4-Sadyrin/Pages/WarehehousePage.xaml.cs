@@ -58,6 +58,7 @@ namespace z3_4_Sadyrin.Pages
 
                 }
                 catch (Exception ex)
+                
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
