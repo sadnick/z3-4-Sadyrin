@@ -38,17 +38,36 @@ namespace z3_4_Sadyrin.Pages
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.Navigate(new AddPage((sender as Button).DataContext as Warehouse));
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddPage(null));
+            var warehouseFromRemoveng = DGridWarehouse.SelectedItems.Cast<Warehouse>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить следущие {warehouseFromRemoveng.Count()} элементов?", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Entities.GetContext().Warehouse.RemoveRange(warehouseFromRemoveng);
+                    Entities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены!");
+
+                    DGridWarehouse.ItemsSource = Entities.GetContext().Warehouse.ToList();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
 
         private void BtnDobav_Click(object sender, RoutedEventArgs e)
         {
-           
+            //Manager.MainFrame.Navigate(new AddPage((sender as Button).DataContext as Warehouse));
+            Manager.MainFrame.Navigate(new AddPage(null));       
         }
 
         private void Page_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
