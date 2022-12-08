@@ -1,0 +1,37 @@
+﻿<Window x:Class="z3_4_Sadyrin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:z3_4_Sadyrin"
+        mc:Ignorable="d"
+        Title="z3-4" Height="700" Width="900" MinHeight="700" MinWidth="900">
+    <Grid>
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="200*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="#FFE1E4FF" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0,613" Grid.RowSpan="2">
+            <Image Source="/Resources/pngtree-beautiful-warehouse-vector-line-icon-png-image_1736927.jpg"
+            Width="55" Margin="10 0 0 0" HorizontalAlignment="Left"></Image>
+
+            <Button x:Name="btnBack" Click="btnBack_Click"
+                Width="150" Height="30" FontSize="17"
+                Foreground="White" Background="#FF4A5DC6"
+                Margin="600 0 0 0" FontFamily="Tahoma">Назад</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
+
+            <Image Source="/Resources/pngtree-beautiful-warehouse-vector-line-icon-png-image_1736927.jpg"
+                   Opacity=".1"
+                   Width="490"></Image>            
+        </StackPanel>
+        
+        <Frame NavigationUIVisibility="Hidden" ContentRendered="mainFrame_ContentRendered" Name="mainFrame" Grid.Row="3" ></Frame>
+    </Grid>
+</Window>
