@@ -20,6 +20,8 @@ namespace z3_4_Sadyrin.Pages
     /// </summary>
     public partial class WarehehousePage : Page
     {
+        private Warehouse _currentWarehouse = new Warehouse();
+
         public WarehehousePage()
         {
             InitializeComponent();
